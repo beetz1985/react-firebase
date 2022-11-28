@@ -1,0 +1,8 @@
+.title {
+    max-width:300px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.4rem;
+    padding:5px;
+}
