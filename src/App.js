@@ -25,8 +25,17 @@ export default function App() {
         })
     }
 
-    const elements = Object.entries(formData).map((v, i)=>{
-        return <DisplayData key={i} data={v[1]} />
+    async function deleteData(id) {
+        const response = await fetch(
+            `https://react-backendtest-default-rtdb.firebaseio.com/movies/${id}.json`, {
+            method: 'DELETE'
+        })
+        getFetchData()
+    }
+    
+    
+    const elements = (formData ? Object.entries(formData) : []).map((v, i)=>{
+        return <DisplayData key={i} data={v[1]} id={v[0]} deleteData={deleteData}/>
     })
 
     return (
